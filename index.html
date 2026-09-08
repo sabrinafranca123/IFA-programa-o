@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFA: Robótica, Programação, Física & Acessibilidade</title>
+    <!-- Importando fonte acessível e moderna do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIÁVEIS DE CORES E IDENTIDADE VISUAL */
+        :root {
+            --bg-main: #F4F0EA;
+            --purple-main: #5E2CA5;
+            --purple-light: #7B3FE4;
+            --teal-bright: #00A896;
+            --orange-vibrant: #FF6B35;
+            --yellow-accent: #FFC000;
+            --card-bg: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-light: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Verdana', sans-serif; /* Fonte muito legível e acessível */
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CABEÇALHO DINÂMICO */
+        header {
+            background: linear-gradient(135deg, var(--purple-main) 0%, var(--teal-bright) 100%);
+            color: var(--text-light);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 6px solid var(--yellow-accent);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            margin-top: 0.8rem;
+            font-weight: bold;
+            color: var(--yellow-accent);
+        }
+
+        /* CONTAINER PRINCIPAL */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* SEÇÃO INTRODUTÓRIA */
+        .intro {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            border-left: 8px solid var(--orange-vibrant);
+        }
+
+        .intro h2 {
+            color: var(--purple-main);
+            margin-top: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--purple-main);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* GRID DOS 3 PILARES DO IFA */
+        .ifa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Animação dinâmica ao passar o mouse */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Cores vibrantes específicas por componente */
+        .card.programacao { border-top: 6px solid var(--purple-light); }
+        .card.robotica { border-top: 6px solid var(--teal-bright); }
+        .card.fisica { border-top: 6px solid var(--orange-vibrant); }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .tag.prog { background-color: var(--purple-light); }
+        .tag.robo { background-color: var(--teal-bright); }
+        .tag.fis { background-color: var(--orange-vibrant); }
+
+        .card-content h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+
+        /* SEÇÃO DE FOTOS DAS ATIVIDADES DOS ALUNOS */
+        .gallery-section {
+            background-color: #EAE6FF;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+        }
+
+        .gallery-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--purple-main);
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--purple-main);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>IFA & Acessibilidade em Ação</h1>
+        <p>Integrando Programação, Robótica e Física para Mudar Vidas</p>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- INTRODUÇÃO -->
+        <section class="intro">
+            <h2>O que é a metodologia IFA?</h2>
+            <p>
+                O <strong>IFA (Integração Físico-Algorítmica)</strong> combina três áreas do conhecimento essencial para criar tecnologias assistivas e acessíveis. Unindo a lógica dos softwares, a mecânica da robótica e as leis da física, nossos alunos criam protótipos que promovem a inclusão e autonomia de pessoas com deficiência.
+            </p>
+        </section>
+
+        <!-- OS TRÊS PILARES -->
+        <h2 class="section-title">Os Três Pilares do IFA</h2>
+        <section class="ifa-grid">
+
+            <!-- CARTÃO 1: PROGRAMAÇÃO -->
+            <article class="card programacao">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Código de programação sendo escrito na tela de um computador">
+                <div class="card-content">
+                    <span class="tag prog">A Lógica</span>
+                    <h3>1. Programação</h3>
+                    <p>
+                        A inteligência do sistema! É através dos algoritmos que criamos a lógica de comando. Na acessibilidade, traduzimos ações simples (como piscar um olho ou emitir um som) em comandos para ativar o dispositivo.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARTÃO 2: ROBÓTICA -->
+            <article class="card robotica">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Mão robótica interativa com detalhes luminosos">
+                <div class="card-content">
+                    <span class="tag robo">A Ação</span>
+                    <h3>2. Robótica</h3>
+                    <p>
+                        A estrutura mecânica! Placas como Arduino e Raspberry Pi dão vida a motores, engrenagens e articulações. É a robótica que constrói as próteses inteligentes e cadeiras de rodas automatizadas.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CARTÃO 3: FÍSICA -->
+            <article class="card fisica">
+                <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Luzes e feixes ópticos demonstrando conceitos de física">
+                <div class="card-content">
+                    <span class="tag fis">A Interação</span>
+                    <h3>3. Física</h3>
+                    <p>
+                        A leitura do mundo! Estudamos ondas sonoras, eletricidade e forças mecânicas para aplicar sensores. É o sensor ultrassônico que "enxerga" distâncias para guiar pessoas com deficiência visual.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- GALERIA DE ATIVIDADES DOS ALUNOS -->
+        <section class="gallery-section">
+            <h2 class="section-title">Atividades Práticas dos Alunos</h2>
+            
+            <div class="gallery-grid">
+                
+                <!-- Foto de Atividade 1 -->
+                <div class="gallery-item">
+                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Alunos montando um circuito com Arduino na bancada">
+                    <p>Montagem de Circuito Acessível com Arduino</p>
+                </div>
+
+                <!-- Foto de Atividade 2 -->
+                <div class="gallery-item">
+                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Estudantes testando código em um computador conectado a um robô">
+                    <p>Programando Bengalas Guiadas por Sensores</p>
+                </div>
+
+                <!-- Foto de Atividade 3 -->
+                <div class="gallery-item">
+                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Grupo de alunos reunidos ajustando a física de movimento do protótipo">
+                    <p>Testes Físicos de Estabilidade em Próteses</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Projetos IFA - Robótica, Programação e Física Inclusiva</p>
+    </footer>
+
+</body>
+</html>
