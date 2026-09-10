@@ -3,70 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5E2CA5">
+
     <title>IFA: Robótica, Programação, Física & Acessibilidade</title>
-    <!-- Importando fonte acessível e moderna do Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&display=swap" rel="stylesheet">
-    
+    <meta name="description" content="Conheça a metodologia IFA (Integração Físico-Algorítmica): união de Programação, Robótica e Física para criar tecnologias assistivas e promover a inclusão.">
+    <meta name="author" content="Projetos IFA">
+
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IFA & Acessibilidade em Ação">
+    <meta property="og:description" content="Integrando Programação, Robótica e Física para Mudar Vidas.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon inline (emoji de robô) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
     <style>
-        /* VARIÁVEIS DE CORES E IDENTIDADE VISUAL */
+        /* ===== VARIÁVEIS DE IDENTIDADE VISUAL ===== */
         :root {
             --bg-main: #F4F0EA;
-            --purple-main: #5E2CA5;
+            --purple-main: #4A1F8A;      /* ajustado para melhor contraste */
             --purple-light: #7B3FE4;
-            --teal-bright: #00A896;
-            --orange-vibrant: #FF6B35;
+            --teal-bright: #007A6E;      /* ajustado para melhor contraste */
+            --orange-vibrant: #D94F1E;   /* ajustado para melhor contraste */
             --yellow-accent: #FFC000;
             --card-bg: #FFFFFF;
             --text-dark: #1F2937;
             --text-light: #FFFFFF;
+            --focus-ring: #FFC000;
+
+            --radius: 16px;
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.10);
+            --shadow-lg: 0 14px 30px rgba(0,0,0,0.16);
         }
 
+        /* ===== RESET LEVE ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Verdana', sans-serif; /* Fonte muito legível e acessível */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--bg-main);
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* CABEÇALHO DINÂMICO */
+        img { max-width: 100%; display: block; }
+
+        /* ===== ACESSIBILIDADE ===== */
+        :focus-visible {
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--yellow-accent);
+            color: #000;
+            padding: 0.8rem 1.2rem;
+            font-weight: bold;
+            z-index: 1000;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus {
+            left: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ===== CABEÇALHO ===== */
         header {
             background: linear-gradient(135deg, var(--purple-main) 0%, var(--teal-bright) 100%);
             color: var(--text-light);
-            padding: 3rem 1.5rem;
+            padding: clamp(2rem, 6vw, 4rem) 1.5rem;
             text-align: center;
             border-bottom: 6px solid var(--yellow-accent);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: clamp(1.6rem, 4vw + 1rem, 2.8rem);
+            line-height: 1.2;
             letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
             margin-top: 0.8rem;
             font-weight: bold;
             color: var(--yellow-accent);
         }
 
-        /* CONTAINER PRINCIPAL */
+        /* ===== CONTEÚDO PRINCIPAL ===== */
         main {
             max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1.5rem;
         }
 
-        /* SEÇÃO INTRODUTÓRIA */
         .intro {
             background-color: var(--card-bg);
             padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
             margin-bottom: 3rem;
             border-left: 8px solid var(--orange-vibrant);
         }
@@ -74,44 +129,45 @@
         .intro h2 {
             color: var(--purple-main);
             margin-top: 0;
+            font-size: clamp(1.4rem, 2vw + 0.5rem, 1.8rem);
         }
 
         .section-title {
             text-align: center;
             color: var(--purple-main);
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 2.5vw + 0.5rem, 1.9rem);
             margin-bottom: 2rem;
-            position: relative;
         }
 
-        /* GRID DOS 3 PILARES DO IFA */
+        /* ===== GRID DOS 3 PILARES ===== */
         .ifa-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-radius: 16px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        /* Animação dinâmica ao passar o mouse */
-        .card:hover {
+        .card:hover,
+        .card:focus-within {
             transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-lg);
         }
 
         .card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            background-color: #e5e5e5; /* placeholder enquanto carrega */
         }
 
         .card-content {
@@ -119,10 +175,9 @@
             flex-grow: 1;
         }
 
-        /* Cores vibrantes específicas por componente */
         .card.programacao { border-top: 6px solid var(--purple-light); }
-        .card.robotica { border-top: 6px solid var(--teal-bright); }
-        .card.fisica { border-top: 6px solid var(--orange-vibrant); }
+        .card.robotica    { border-top: 6px solid var(--teal-bright); }
+        .card.fisica      { border-top: 6px solid var(--orange-vibrant); }
 
         .tag {
             display: inline-block;
@@ -136,24 +191,25 @@
 
         .tag.prog { background-color: var(--purple-light); }
         .tag.robo { background-color: var(--teal-bright); }
-        .tag.fis { background-color: var(--orange-vibrant); }
+        .tag.fis  { background-color: var(--orange-vibrant); }
 
         .card-content h3 {
             margin-top: 0;
             color: var(--text-dark);
+            font-size: 1.25rem;
         }
 
-        /* SEÇÃO DE FOTOS DAS ATIVIDADES DOS ALUNOS */
+        /* ===== GALERIA ===== */
         .gallery-section {
             background-color: #EAE6FF;
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
             border-radius: 20px;
             margin-bottom: 3rem;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
         }
 
@@ -161,8 +217,14 @@
             background-color: var(--card-bg);
             border-radius: 12px;
             padding: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover,
+        .gallery-item:focus-within {
+            transform: translateY(-4px);
         }
 
         .gallery-item img {
@@ -171,16 +233,17 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 0.8rem;
+            background-color: #e5e5e5;
         }
 
-        .gallery-item p {
+        .gallery-item figcaption {
             margin: 0;
             font-size: 0.95rem;
             font-weight: bold;
             color: var(--purple-main);
         }
 
-        /* RODAPÉ */
+        /* ===== RODAPÉ ===== */
         footer {
             background-color: var(--purple-main);
             color: var(--text-light);
@@ -189,66 +252,96 @@
             margin-top: 4rem;
         }
 
-        footer p {
-            margin: 0;
+        footer p { margin: 0.3rem 0; }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: var(--yellow-accent);
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease;
         }
+        .back-to-top:hover { border-bottom-color: var(--yellow-accent); }
     </style>
 </head>
 <body>
 
+    <!-- Link de pulo para o conteúdo (acessibilidade) -->
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
     <!-- CABEÇALHO -->
     <header>
-        <h1>IFA & Acessibilidade em Ação</h1>
+        <h1>IFA &amp; Acessibilidade em Ação</h1>
         <p>Integrando Programação, Robótica e Física para Mudar Vidas</p>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main>
+    <main id="conteudo">
 
         <!-- INTRODUÇÃO -->
-        <section class="intro">
-            <h2>O que é a metodologia IFA?</h2>
+        <section class="intro" aria-labelledby="titulo-ifa">
+            <h2 id="titulo-ifa">O que é a metodologia IFA?</h2>
             <p>
-                O <strong>IFA (Integração Físico-Algorítmica)</strong> combina três áreas do conhecimento essencial para criar tecnologias assistivas e acessíveis. Unindo a lógica dos softwares, a mecânica da robótica e as leis da física, nossos alunos criam protótipos que promovem a inclusão e autonomia de pessoas com deficiência.
+                O <strong>IFA (Integração Físico-Algorítmica)</strong> combina três áreas do conhecimento
+                essenciais para criar tecnologias assistivas e acessíveis. Unindo a lógica dos softwares,
+                a mecânica da robótica e as leis da física, nossos alunos criam protótipos que promovem
+                a inclusão e autonomia de pessoas com deficiência.
             </p>
         </section>
 
         <!-- OS TRÊS PILARES -->
-        <h2 class="section-title">Os Três Pilares do IFA</h2>
-        <section class="ifa-grid">
+        <h2 class="section-title" id="titulo-pilares">Os Três Pilares do IFA</h2>
+        <section class="ifa-grid" aria-labelledby="titulo-pilares">
 
             <!-- CARTÃO 1: PROGRAMAÇÃO -->
             <article class="card programacao">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Código de programação sendo escrito na tela de um computador">
+                <img
+                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80"
+                    alt="Código de programação sendo escrito na tela de um computador"
+                    loading="lazy" width="600" height="400">
                 <div class="card-content">
                     <span class="tag prog">A Lógica</span>
                     <h3>1. Programação</h3>
                     <p>
-                        A inteligência do sistema! É através dos algoritmos que criamos a lógica de comando. Na acessibilidade, traduzimos ações simples (como piscar um olho ou emitir um som) em comandos para ativar o dispositivo.
+                        A inteligência do sistema! É através dos algoritmos que criamos a lógica de comando.
+                        Na acessibilidade, traduzimos ações simples (como piscar um olho ou emitir um som)
+                        em comandos para ativar o dispositivo.
                     </p>
                 </div>
             </article>
 
             <!-- CARTÃO 2: ROBÓTICA -->
             <article class="card robotica">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Mão robótica interativa com detalhes luminosos">
+                <img
+                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80"
+                    alt="Mão robótica interativa com detalhes luminosos"
+                    loading="lazy" width="600" height="400">
                 <div class="card-content">
                     <span class="tag robo">A Ação</span>
                     <h3>2. Robótica</h3>
                     <p>
-                        A estrutura mecânica! Placas como Arduino e Raspberry Pi dão vida a motores, engrenagens e articulações. É a robótica que constrói as próteses inteligentes e cadeiras de rodas automatizadas.
+                        A estrutura mecânica! Placas como Arduino e Raspberry Pi dão vida a motores,
+                        engrenagens e articulações. É a robótica que constrói as próteses inteligentes
+                        e cadeiras de rodas automatizadas.
                     </p>
                 </div>
             </article>
 
             <!-- CARTÃO 3: FÍSICA -->
             <article class="card fisica">
-                <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80" alt="Luzes e feixes ópticos demonstrando conceitos de física">
+                <img
+                    src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80"
+                    alt="Luzes e feixes ópticos demonstrando conceitos de física"
+                    loading="lazy" width="600" height="400">
                 <div class="card-content">
                     <span class="tag fis">A Interação</span>
                     <h3>3. Física</h3>
                     <p>
-                        A leitura do mundo! Estudamos ondas sonoras, eletricidade e forças mecânicas para aplicar sensores. É o sensor ultrassônico que "enxerga" distâncias para guiar pessoas com deficiência visual.
+                        A leitura do mundo! Estudamos ondas sonoras, eletricidade e forças mecânicas
+                        para aplicar sensores. É o sensor ultrassônico que "enxerga" distâncias para
+                        guiar pessoas com deficiência visual.
                     </p>
                 </div>
             </article>
@@ -256,31 +349,35 @@
         </section>
 
         <!-- GALERIA DE ATIVIDADES DOS ALUNOS -->
-        <section class="gallery-section">
-            <h2 class="section-title">Atividades Práticas dos Alunos</h2>
-            
+        <section class="gallery-section" aria-labelledby="titulo-galeria">
+            <h2 class="section-title" id="titulo-galeria">Atividades Práticas dos Alunos</h2>
+
             <div class="gallery-grid">
-                
-                <!-- Foto de Atividade 1 -->
-                <div class="gallery-item">
-                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Alunos montando um circuito com Arduino na bancada">
-                    <p>Montagem de Circuito Acessível com Arduino</p>
-                </div>
 
-                <!-- Foto de Atividade 2 -->
-                <div class="gallery-item">
-                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Estudantes testando código em um computador conectado a um robô">
-                    <p>Programando Bengalas Guiadas por Sensores</p>
-                </div>
+                <!-- Substitua os 'src' pelas fotos reais dos seus alunos -->
+                <figure class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                        alt="Alunos montando um circuito com Arduino na bancada"
+                        loading="lazy" width="600" height="440">
+                    <figcaption>Montagem de Circuito Acessível com Arduino</figcaption>
+                </figure>
 
-                <!-- Foto de Atividade 3 -->
-                <div class="gallery-item">
-                    <!-- Substitua o link em 'src' pela foto real do seu aluno -->
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Grupo de alunos reunidos ajustando a física de movimento do protótipo">
-                    <p>Testes Físicos de Estabilidade em Próteses</p>
-                </div>
+                <figure class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
+                        alt="Estudantes testando código em um computador conectado a um robô"
+                        loading="lazy" width="600" height="440">
+                    <figcaption>Programando Bengalas Guiadas por Sensores</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80"
+                        alt="Grupo de alunos reunidos ajustando a física de movimento do protótipo"
+                        loading="lazy" width="600" height="440">
+                    <figcaption>Testes Físicos de Estabilidade em Próteses</figcaption>
+                </figure>
 
             </div>
         </section>
@@ -289,8 +386,13 @@
 
     <!-- RODAPÉ -->
     <footer>
-        <p>&copy; 2026 Projetos IFA - Robótica, Programação e Física Inclusiva</p>
+        <p>&copy; <span id="ano"></span> Projetos IFA — Robótica, Programação e Física Inclusiva</p>
+        <a class="back-to-top" href="#conteudo">↑ Voltar ao topo</a>
     </footer>
 
+    <script>
+        // Ano dinâmico no rodapé
+        document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
