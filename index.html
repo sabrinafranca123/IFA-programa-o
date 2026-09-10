@@ -681,4 +681,668 @@ footer{
   </div>
   <div class="hud-right">
     <button class="hud-btn" id="soundBtn" aria-label="Ligar/desligar áudio ambiente" title="Áudio">🔊</button>
-    <button class="hud-btn" id="a11yBtn" aria-label="Abrir painel de acessibilidade
+    <button class="hud-btn" id="a11yBtn" aria-label="Abrir painel de acessibilidade" title="Acessibilidade">♿</button>
+    <button class="hud-btn" id="themeBtn" aria-label="Alternar tema" title="Tema">◐</button>
+  </div>
+</div>
+
+<!-- HUD canto: coordenadas fake -->
+<div class="hud-corner" aria-hidden="true">
+  SYS: <span class="val" id="sysStatus">ONLINE</span><br>
+  SCROLL: <span class="val" id="scrollPct">000</span>%<br>
+  FPS: <span class="val" id="fpsVal">60</span>
+</div>
+
+<!-- PAINEL ACESSIBILIDADE -->
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Painel de acessibilidade">
+  <h4>⚙ Preferências</h4>
+  <div class="a11y-row">
+    <span>Alto contraste</span>
+    <button class="a11y-toggle" data-toggle="contrast" aria-label="Alternar alto contraste"></button>
+  </div>
+  <div class="a11y-row">
+    <span>Fonte ampliada</span>
+    <button class="a11y-toggle" data-toggle="font" aria-label="Alternar fonte ampliada"></button>
+  </div>
+  <div class="a11y-row">
+    <span>Reduzir movimento</span>
+    <button class="a11y-toggle" data-toggle="motion" aria-label="Alternar redução de movimento"></button>
+  </div>
+  <div class="a11y-row">
+    <span>Ocultar efeitos</span>
+    <button class="a11y-toggle" data-toggle="effects" aria-label="Alternar efeitos visuais"></button>
+  </div>
+</aside>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <span class="hero-eyebrow"><span class="line"></span> Metodologia IFA · 2026</span>
+  <h1>
+    <span class="word">Código.</span>
+    <span class="word accent">Matéria.</span>
+    <span class="word">Energia.</span>
+    <span class="word">Inclusão.</span>
+  </h1>
+  <p class="hero-sub"><span class="prompt">&gt;</span> Uma jornada interativa pela metodologia que une <strong style="color:var(--purple)">Programação</strong>, <strong style="color:var(--teal)">Robótica</strong> e <strong style="color:var(--orange)">Física</strong> para criar tecnologia assistiva de verdade.</p>
+  <div class="hero-cta">
+    <a href="#pilares" class="btn btn-primary"><span>Iniciar jornada →</span></a>
+    <a href="#terminal" class="btn btn-ghost">$ abrir terminal</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     PILARES — SCROLL HORIZONTAL FIXADO
+     ============================================================ -->
+<section class="pillars-section" id="pilares">
+  <div class="pillars-sticky">
+    <div class="pillars-track" id="pillarsTrack">
+
+      <div class="pillar-slide" data-color="purple">
+        <div class="pillar-visual">
+          <span class="badge">01 / Lógica</span>
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Código de programação" loading="lazy">
+        </div>
+        <div class="pillar-info">
+          <span class="num">PILAR 01</span>
+          <h3>Programação</h3>
+          <p>A inteligência que dá vida ao sistema. Traduzimos sinais do corpo — um piscar, um sopro, uma voz — em comandos que disparam ações concretas no mundo físico.</p>
+          <div class="tags">
+            <span class="tag on">Python</span>
+            <span class="tag on">Arduino IDE</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Processamento de Sinais</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-slide" data-color="teal">
+        <div class="pillar-visual">
+          <span class="badge">02 / Ação</span>
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80" alt="Robô articulado" loading="lazy">
+        </div>
+        <div class="pillar-info">
+          <span class="num">PILAR 02</span>
+          <h3>Robótica</h3>
+          <p>A matéria que obedece ao código. Motores, servos, sensores e estruturas impressas em 3D compõem próteses, cadeiras e órteses sob medida para cada corpo.</p>
+          <div class="tags">
+            <span class="tag on">Arduino</span>
+            <span class="tag on">Raspberry Pi</span>
+            <span class="tag">Impressão 3D</span>
+            <span class="tag">Servo Motores</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar-slide" data-color="orange">
+        <div class="pillar-visual">
+          <span class="badge">03 / Interação</span>
+          <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80" alt="Feixes de luz e física" loading="lazy">
+        </div>
+        <div class="pillar-info">
+          <span class="num">PILAR 03</span>
+          <h3>Física</h3>
+          <p>A leitura do mundo real. Ondas, eletricidade, torque e força guiam o design de sensores que "enxergam", "escutam" e reagem ao ambiente com precisão.</p>
+          <div class="tags">
+            <span class="tag on">Ultrassom</span>
+            <span class="tag on">Acelerômetros</span>
+            <span class="tag">Eletromagnetismo</span>
+            <span class="tag">Torque</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="pillars-indicator" id="pillarsIndicator" aria-hidden="true">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TERMINAL INTERATIVO
+     ============================================================ -->
+<section class="terminal-section" id="terminal">
+  <div class="terminal-wrap">
+    <div class="terminal-bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="title">ifa@lab: ~/projetos</span>
+    </div>
+    <div class="terminal-body" id="terminalBody" role="log" aria-live="polite">
+      <div class="t-line"><span class="t-prompt">ifa@lab</span>:<span class="t-accent">~</span>$ <span class="t-out">Bem-vindo ao terminal interativo do IFA Lab.</span></div>
+      <div class="t-line t-out">Digite <span class="t-ok">help</span> para ver os comandos disponíveis.</div>
+    </div>
+    <div class="terminal-body" style="border-top:1px solid var(--line);min-height:auto;padding:1rem 1.8rem">
+      <div class="t-input-line">
+        <span class="t-prompt">ifa@lab</span><span class="t-accent">:~$</span>
+        <input class="t-input" id="terminalInput" autocomplete="off" spellcheck="false" aria-label="Digite um comando">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BENTO GRID — GALERIA
+     ============================================================ -->
+<section class="bento-section" id="galeria">
+  <div class="bento-head">
+    <div class="kicker">◆ Arquivo visual</div>
+    <h2>Projetos que saíram <span class="accent">do papel</span></h2>
+  </div>
+
+  <div class="bento">
+    <figure class="bento-item a" tabindex="0">
+      <span class="corner">IMG_001</span>
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80" alt="Alunos montando circuito com Arduino" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Circuito Acessível com Arduino</h4>
+        <p>Protótipo de acionamento por sopro</p>
+      </figcaption>
+    </figure>
+
+    <figure class="bento-item b" tabindex="0">
+      <span class="corner">IMG_002</span>
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80" alt="Bengala com sensor" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Bengala Guiada por Ultrassom</h4>
+        <p>Sensor HC-SR04 + vibração</p>
+      </figcaption>
+    </figure>
+
+    <figure class="bento-item c" tabindex="0">
+      <span class="corner">IMG_003</span>
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Grupo de alunos testando protótipo" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Testes de Estabilidade</h4>
+        <p>Próteses de membro superior</p>
+      </figcaption>
+    </figure>
+
+    <figure class="bento-item d" tabindex="0">
+      <span class="corner">IMG_004</span>
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Placa eletrônica" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Placa de Controle</h4>
+        <p>PCB customizada</p>
+      </figcaption>
+    </figure>
+
+    <figure class="bento-item e" tabindex="0">
+      <span class="corner">IMG_005</span>
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=80" alt="IA e código" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Visão Computacional</h4>
+        <p>Reconhecimento de gestos</p>
+      </figcaption>
+    </figure>
+
+    <figure class="bento-item f" tabindex="0">
+      <span class="corner">IMG_006</span>
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Aluna programando" loading="lazy">
+      <figcaption class="overlay">
+        <h4>Interface Assistiva</h4>
+        <p>Comunicação alternativa</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================
+     TIMELINE
+     ============================================================ -->
+<section class="timeline-section" id="timeline">
+  <div class="bento-head">
+    <div class="kicker">◆ Linha do tempo</div>
+    <h2>Como chegamos até aqui</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2022 · ORIGEM</div>
+      <h3>Primeiro protótipo</h3>
+      <p>Nasce a ideia do IFA com uma bengala ultrassônica feita em uma bancada escolar com Arduino Uno e sucata eletrônica.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2023 · EXPANSÃO</div>
+      <h3>Metodologia formalizada</h3>
+      <p>Os três pilares (Programação, Robótica e Física) são documentados como currículo interdisciplinar aplicado em turmas do ensino médio técnico.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2024 · IMPACTO</div>
+      <h3>Primeiras próteses funcionais</h3>
+      <p>Alunos entregam três próteses de mão impressas em 3D para pessoas da comunidade, todas controladas por EMG de baixo custo.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2026 · AGORA</div>
+      <h3>Laboratório aberto</h3>
+      <p>O IFA Lab se consolida como espaço de pesquisa estudantil com projetos em visão computacional, IA embarcada e acessibilidade digital.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+     ============================================================ -->
+<section class="cta-final" id="contato">
+  <h2>Vamos construir a próxima <span class="accent">tecnologia assistiva</span> juntos?</h2>
+  <p>Se você é aluno, professor, escola ou pessoa com deficiência que quer colaborar — o IFA Lab está aberto.</p>
+  <a href="mailto:contato@ifalab.exemplo" class="btn btn-primary"><span>✉ Entrar em contato</span></a>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>IFA Lab</h4>
+      <p style="max-width:40ch;line-height:1.7">Laboratório interdisciplinar de robótica, programação e física aplicados à acessibilidade.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explorar</h4>
+      <a href="#pilares">Pilares</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#timeline">História</a>
+    </div>
+    <div class="footer-col">
+      <h4>Projetos</h4>
+      <a href="#">Bengala Inteligente</a>
+      <a href="#">Prótese EMG</a>
+      <a href="#">Comunicação Alternativa</a>
+      <a href="#">Cadeira Automatizada</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Código-fonte</a>
+      <a href="#">Documentação</a>
+      <a href="#">Licença</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> IFA LAB · v2.0</span>
+    <span>FEITO COM ⚡ POR ALUNOS</span>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Voltar ao topo">↑</button>
+
+<script>
+/* ============================================================
+   1. CURSOR MAGNÉTICO
+   ============================================================ */
+const cDot = document.getElementById('cDot');
+const cRing = document.getElementById('cRing');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+let rx = mx, ry = my;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cDot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+});
+function animateCursor(){
+  rx += (mx - rx) * 0.15;
+  ry += (my - ry) * 0.15;
+  cRing.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, button, .bento-item, .pillar-slide, .a11y-toggle, input').forEach(el => {
+  el.addEventListener('mouseenter', () => cRing.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cRing.classList.remove('hover'));
+});
+
+/* ============================================================
+   2. REDE NEURAL (canvas fundo)
+   ============================================================ */
+const canvas = document.getElementById('neural');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+const mouse = { x: -9999, y: -9999 };
+let effectsOn = true;
+
+function resize(){
+  W = canvas.width = window.innerWidth * devicePixelRatio;
+  H = canvas.height = window.innerHeight * devicePixelRatio;
+  canvas.style.width = window.innerWidth + 'px';
+  canvas.style.height = window.innerHeight + 'px';
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  W = window.innerWidth; H = window.innerHeight;
+  initParticles();
+}
+function initParticles(){
+  particles = [];
+  const count = Math.min(90, Math.floor(window.innerWidth / 18));
+  for(let i=0;i<count;i++){
+    particles.push({
+      x: Math.random()*W,
+      y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.4,
+      vy: (Math.random()-0.5)*0.4,
+      r: Math.random()*1.8 + 0.6
+    });
+  }
+}
+function drawParticles(){
+  if(!effectsOn){ ctx.clearRect(0,0,W,H); return; }
+  ctx.clearRect(0,0,W,H);
+  const theme = document.documentElement.dataset.theme;
+  const baseColor = theme === 'dark' ? '139,92,255' : '91,44,184';
+
+  for(let i=0;i<particles.length;i++){
+    const p = particles[i];
+    p.x += p.vx; p.y += p.vy;
+    if(p.x<0||p.x>W) p.vx*=-1;
+    if(p.y<0||p.y>H) p.vy*=-1;
+
+    // Interação com mouse
+    const dx = p.x - mouse.x, dy = p.y - mouse.y;
+    const dist = Math.hypot(dx, dy);
+    if(dist < 140){
+      p.x += dx/dist * 0.8;
+      p.y += dy/dist * 0.8;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${baseColor}, .6)`;
+    ctx.fill();
+
+    // Conexões
+    for(let j=i+1;j<particles.length;j++){
+      const q = particles[j];
+      const d = Math.hypot(p.x-q.x, p.y-q.y);
+      if(d < 130){
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle = `rgba(${baseColor}, ${(1 - d/130) * 0.15})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(drawParticles);
+}
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+resize();
+drawParticles();
+
+/* ============================================================
+   3. PROGRESSO + SCROLL + FPS
+   ============================================================ */
+const progressBar = document.getElementById('progressBar');
+const scrollPct = document.getElementById('scrollPct');
+const toTop = document.getElementById('toTop');
+
+function onScroll(){
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = Math.min(100, (window.scrollY / h) * 100);
+  progressBar.style.width = p + '%';
+  scrollPct.textContent = String(Math.floor(p)).padStart(3, '0');
+  toTop.classList.toggle('show', window.scrollY > 600);
+  updatePillars();
+}
+window.addEventListener('scroll', onScroll, { passive:true });
+toTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+/* FPS */
+let last = performance.now(), frames = 0;
+function fpsLoop(t){
+  frames++;
+  if(t - last >= 1000){
+    document.getElementById('fpsVal').textContent = frames;
+    frames = 0; last = t;
+  }
+  requestAnimationFrame(fpsLoop);
+}
+requestAnimationFrame(fpsLoop);
+
+/* ============================================================
+   4. PILARES — SCROLL HORIZONTAL FIXADO
+   ============================================================ */
+const pillarsSection = document.getElementById('pilares');
+const pillarsTrack = document.getElementById('pillarsTrack');
+const pillarsDots = document.querySelectorAll('.pillars-indicator .dot');
+let currentSlide = 0;
+
+function updatePillars(){
+  if(!pillarsSection) return;
+  const rect = pillarsSection.getBoundingClientRect();
+  const total = pillarsSection.offsetHeight - window.innerHeight;
+  const progress = Math.max(0, Math.min(1, -rect.top / total));
+  const maxScroll = pillarsTrack.scrollWidth - window.innerWidth;
+  pillarsTrack.style.transform = `translateX(${-progress * maxScroll}px)`;
+
+  const slide = Math.min(2, Math.floor(progress * 3));
+  if(slide !== currentSlide){
+    currentSlide = slide;
+    pillarsDots.forEach((d,i) => d.classList.toggle('active', i === slide));
+  }
+}
+
+/* ============================================================
+   5. TERMINAL INTERATIVO
+   ============================================================ */
+const termBody = document.getElementById('terminalBody');
+const termInput = document.getElementById('terminalInput');
+
+const commands = {
+  help: () => [
+    '<span class="t-ok">Comandos disponíveis:</span>',
+    '  <span class="t-cmd">help</span>       — mostra esta ajuda',
+    '  <span class="t-cmd">ifa</span>        — explica a metodologia IFA',
+    '  <span class="t-cmd">pilares</span>    — lista os três pilares',
+    '  <span class="t-cmd">projetos</span>   — projetos ativos',
+    '  <span class="t-cmd">contato</span>    — como falar com a equipe',
+    '  <span class="t-cmd">tema</span>       — alterna o tema claro/escuro',
+    '  <span class="t-cmd">matrix</span>     — modo matrix (temporário)',
+    '  <span class="t-cmd">clear</span>      — limpa o terminal'
+  ],
+  ifa: () => [
+    '<span class="t-ok">IFA = Integração Físico-Algorítmica</span>',
+    'Une <span class="t-accent">Programação</span> (lógica),',
+    '<span class="t-accent">Robótica</span> (matéria) e',
+    '<span class="t-accent">Física</span> (leitura do mundo)',
+    'para criar tecnologia assistiva.'
+  ],
+  pilares: () => [
+    '<span class="t-ok">01 · PROGRAMAÇÃO</span> — Python, Arduino IDE, ML',
+    '<span class="t-ok">02 · ROBÓTICA</span>     — Arduino, Raspberry Pi, impressão 3D',
+    '<span class="t-ok">03 · FÍSICA</span>       — ultrassom, EMG, torque, eletromagnetismo'
+  ],
+  projetos: () => [
+    '<span class="t-accent">▸</span> Bengala Inteligente com ultrassom',
+    '<span class="t-accent">▸</span> Prótese de mão controlada por EMG',
+    '<span class="t-accent">▸</span> Sistema de comunicação alternativa',
+    '<span class="t-accent">▸</span> Cadeira de rodas com joystick adaptado'
+  ],
+  contato: () => [
+    '📧  contato@ifalab.exemplo',
+    '🌐  github.com/ifalab',
+    '📷  @ifalab'
+  ],
+  tema: () => { toggleTheme(); return ['<span class="t-ok">Tema alternado.</span>']; },
+  matrix: () => {
+    runMatrix();
+    return ['<span class="t-ok">Wake up, Neo...</span>'];
+  },
+  clear: () => { termBody.innerHTML = ''; return []; },
+  '': () => []
+};
+
+function printLine(html){
+  const div = document.createElement('div');
+  div.className = 't-line';
+  div.innerHTML = html;
+  termBody.appendChild(div);
+  termBody.scrollTop = termBody.scrollHeight;
+}
+
+function runMatrix(){
+  const term = termBody;
+  const original = term.innerHTML;
+  let count = 0;
+  const interval = setInterval(() => {
+    const line = document.createElement('div');
+    line.className = 't-line';
+    line.style.color = '#00FF41';
+    line.textContent = Array.from({length: 60}, () => Math.random() > .5 ? '1' : '0').join('');
+    term.appendChild(line);
+    term.scrollTop = term.scrollHeight;
+    if(++count > 40){
+      clearInterval(interval);
+      term.innerHTML = original;
+    }
+  }, 30);
+}
+
+function handleCommand(cmd){
+  const c = cmd.trim().toLowerCase();
+  printLine(`<span class="t-prompt">ifa@lab</span><span class="t-accent">:~$</span> <span class="t-cmd">${escapeHtml(cmd)}</span>`);
+  const fn = commands[c];
+  if(fn){
+    fn().forEach(line => printLine(line));
+  } else {
+    printLine(`<span class="t-err">comando não encontrado:</span> ${escapeHtml(cmd)}. Digite <span class="t-ok">help</span>.`);
+  }
+}
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+termInput.addEventListener('keydown', e => {
+  if(e.key === 'Enter'){
+    const val = termInput.value;
+    termInput.value = '';
+    handleCommand(val);
+  }
+});
+document.querySelector('.terminal-wrap').addEventListener('click', () => termInput.focus());
+
+/* ============================================================
+   6. TEMA
+   ============================================================ */
+function toggleTheme(){
+  const html = document.documentElement;
+  const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  if(document.startViewTransition){
+    document.startViewTransition(() => { html.dataset.theme = next; });
+  } else {
+    html.dataset.theme = next;
+  }
+}
+document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+
+/* ============================================================
+   7. PAINEL ACESSIBILIDADE
+   ============================================================ */
+const a11yBtn = document.getElementById('a11yBtn');
+const a11yPanel = document.getElementById('a11yPanel');
+a11yBtn.addEventListener('click', () => a11yPanel.classList.toggle('open'));
+
+document.querySelectorAll('.a11y-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('on');
+    const key = btn.dataset.toggle;
+    const html = document.documentElement;
+
+    if(key === 'contrast'){
+      html.dataset.contrast = btn.classList.contains('on') ? 'high' : 'normal';
+    }
+    if(key === 'font'){
+      html.dataset.font = btn.classList.contains('on') ? 'large' : 'normal';
+    }
+    if(key === 'motion'){
+      html.dataset.motion = btn.classList.contains('on') ? 'reduced' : 'normal';
+    }
+    if(key === 'effects'){
+      effectsOn = !btn.classList.contains('on');
+      canvas.style.display = effectsOn ? 'block' : 'none';
+      document.querySelector('.noise').style.display = effectsOn ? 'block' : 'none';
+      document.querySelector('.scanlines').style.display = effectsOn ? 'block' : 'none';
+    }
+  });
+});
+
+/* ============================================================
+   8. ÁUDIO AMBIENTE (WebAudio — drone sutil)
+   ============================================================ */
+let audioCtx = null, audioNodes = null, soundOn = false;
+document.getElementById('soundBtn').addEventListener('click', () => {
+  soundOn = !soundOn;
+  document.getElementById('soundBtn').textContent = soundOn ? '🔊' : '🔇';
+  if(soundOn){
+    if(!audioCtx){
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      osc1.type = 'sine'; osc1.frequency.value = 110;
+      osc2.type = 'sine'; osc2.frequency.value = 164.81;
+      filter.type = 'lowpass'; filter.frequency.value = 400;
+      gain.gain.value = 0;
+
+      osc1.connect(filter); osc2.connect(filter);
+      filter.connect(gain); gain.connect(audioCtx.destination);
+      osc1.start(); osc2.start();
+
+      gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + 2);
+      audioNodes = { gain };
+    } else {
+      audioCtx.resume();
+      audioNodes.gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + 1);
+    }
+  } else if(audioNodes){
+    audioNodes.gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.5);
+  }
+});
+
+/* ============================================================
+   9. REVEAL SCROLL (timeline)
+   ============================================================ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
+
+/* ============================================================
+   10. ANO DINÂMICO
+   ============================================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ============================================================
+   11. ATALHOS DE TECLADO (acessibilidade)
+   ============================================================ */
+document.addEventListener('keydown', e => {
+  if(e.target.tagName === 'INPUT') return;
+  if(e.key === 't' && !e.ctrlKey && !e.metaKey){ toggleTheme(); }
+  if(e.key === 'Escape'){ a11yPanel.classList.remove('open'); }
+});
+
+/* Status fake no HUD */
+setInterval(() => {
+  const el = document.getElementById('sysStatus');
+  if(Math.random() > .9) el.textContent = 'SCAN';
+  else el.textContent = 'ONLINE';
+}, 2000);
+
+onScroll();
+</script>
+</body>
+</html>
